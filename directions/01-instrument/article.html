@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Where the middle-wage jobs went</title>
+<meta name="description" content="Visinage article opener, direction one: the chart as narrator. A dark file block and title, two speeds, a pinned chart that changes state as four claims scroll past it, then a seam into the reading body. Prototype with demo data.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300..900&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="instrument.css">
+</head>
+<body data-page="article" data-ground="dark" data-nav="dark">
+
+<nav class="pill pill--nav no-trail" aria-label="Primary">
+  <a class="wordmark" href="index.html">Visinage</a>
+  <ul class="pill-links"></ul>
+  <form class="pill-search" role="search" onsubmit="event.preventDefault()"><label class="sr" for="q">Search Visinage</label><input id="q" type="search" placeholder="Search" autocomplete="off"></form>
+  <a class="pill-sub" href="index.html#newsletter">Subscribe</a>
+  <div class="pill-right">
+    <button class="pill-searchbtn" type="button" aria-label="Search"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.5" cy="6.5" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><line x1="10.5" y1="10.5" x2="15" y2="15" stroke="currentColor" stroke-width="1.5"/></svg></button>
+    <button class="pill-menu" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+  </div>
+</nav>
+<a class="pill pill--radar no-trail" href="radar.html" data-cursor="TRACK"><i aria-hidden="true"></i><span>[ <span class="radar-count">8</span> ] moving &middot; radar</span></a>
+<div class="menu no-trail" id="menu" hidden>
+  <button class="menu-close" type="button">Close</button>
+  <ul class="menu-links"></ul>
+  <form class="pill-search" role="search" onsubmit="event.preventDefault()"><label class="sr" for="q-m">Search Visinage</label><input id="q-m" type="search" placeholder="Search" autocomplete="off"></form>
+  <div class="menu-foot"><a href="index.html#newsletter">Subscribe to the letter</a><a href="radar.html">[ <span class="radar-count">8</span> ] moving &middot; open the radar</a></div>
+</div>
+
+<main>
+  <!-- 1 to 3. File block, title and deck, two speeds -->
+  <section class="sec a-hero t-dark" data-theme="dark" id="opener" aria-label="Article opener">
+    <div class="frame g12">
+      <div class="file mono" id="file"></div>
+      <h1 class="h1 a-title" id="a-title"></h1>
+      <p class="deck a-deck" id="a-deck"></p>
+      <div class="two">
+        <div class="two-nums" id="two-nums"></div>
+        <div class="two-view"><span class="label">Two speeds &middot; the fast read</span><p id="two-view"></p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. The hero: chart as narrator -->
+  <section class="sec narrator t-dark" data-theme="dark" id="narrator" aria-label="The argument, in one chart">
+    <div class="frame">
+      <div class="narr-grid">
+        <div class="steps" id="steps"></div>
+        <figure class="narr-fig">
+          <div class="chart" id="a-chart"></div>
+          <div class="ruler" id="ruler" aria-label="Year"></div>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. The hand-over: a seam into the reading body -->
+  <section class="sec a-body t-light" data-theme="light" id="body" aria-label="The piece">
+    <div class="frame g12">
+      <div class="seam-label mono"><span>FIG 1 &middot; the chart above, with its notes</span><span>Reading time 14 min</span></div>
+      <aside class="fig-note">
+        <span class="fig">FIG 1</span>
+        <strong id="fig-title" style="font-weight:600"></strong>
+        <p id="fig-notes"></p>
+        <p class="source mono" id="fig-source"></p>
+        <a class="link" href="#" data-cursor="DATA">Download the data &rarr;</a>
+      </aside>
+      <div class="a-prose"><div class="prose" id="a-prose"></div></div>
+      <div class="continues mono"><span>The piece continues &middot; four parts, one chart redrawn for each</span></div>
+      <ol class="related" id="related" aria-label="Related research"></ol>
+    </div>
+  </section>
+
+  <footer class="footer footer--compact" data-theme="dark" id="footer" aria-label="Footer"></footer>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="../../lib/content.js"></script>
+<script src="../../lib/content-phase-b.js"></script>
+<script src="../../lib/charts.js"></script>
+<script src="../../lib/motion.js"></script>
+<script src="../../lib/art.js"></script>
+<script src="instrument.js"></script>
+</body>
+</html>

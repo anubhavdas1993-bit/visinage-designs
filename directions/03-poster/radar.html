@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Visinage radar, the poster</title>
+<meta name="description" content="The Visinage public radar as a front page: what is moving today, eight items each a full-viewport colour poster with a duotone photograph, sparkline and sources. Design prototype with demo data.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<link rel="stylesheet" href="poster.css">
+</head>
+<body data-page="radar" data-ground="off">
+<header class="hdr" id="hdr"></header>
+<main>
+  <!-- The board opener: a front page. "MOVING TODAY" at 220px, the date, the refresh line, sources polled, the demo stamp. -->
+  <section class="sec g-off rd-open" data-ground="off" aria-label="What is moving today">
+    <div class="frame" id="rd-open-body"></div>
+  </section>
+  <!-- The eight items, each 100vh, the ground switching per item: navy, red, cyan, off-white, navy, red, cyan, off-white -->
+  <div id="rd-items"></div>
+  <section class="sec g-off pad" id="how" data-ground="off" aria-label="How the radar works">
+    <div class="frame" id="how-body"></div>
+  </section>
+  <section class="sec g-off pad" id="started" data-ground="off" aria-label="Started on the radar">
+    <div class="frame" id="started-body"></div>
+  </section>
+  <footer class="sec g-navy" data-ground="navy">
+    <div class="frame" id="footer-body"></div>
+  </footer>
+</main>
+<script src="../../lib/content.js"></script>
+<script src="../../lib/content-phase-b.js"></script>
+<script src="../../lib/charts.js"></script>
+<script src="../../lib/motion.js"></script>
+<script src="../../lib/art.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="poster.js"></script>
+</body>
+</html>

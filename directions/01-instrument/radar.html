@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Visinage radar: the ring</title>
+<meta name="description" content="Visinage public radar, direction one: the board is a ring. Eight segments for eight moving topics, a needle at now, sources as rim ticks, the raw headlines beneath the rows. Prototype with demo data.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300..900&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="instrument.css">
+</head>
+<body data-page="radar" data-ground="dark" data-nav="dark">
+
+<nav class="pill pill--nav no-trail" aria-label="Primary">
+  <a class="wordmark" href="index.html">Visinage</a>
+  <ul class="pill-links"></ul>
+  <form class="pill-search" role="search" onsubmit="event.preventDefault()"><label class="sr" for="q">Search Visinage</label><input id="q" type="search" placeholder="Search" autocomplete="off"></form>
+  <a class="pill-sub" href="index.html#newsletter">Subscribe</a>
+  <div class="pill-right">
+    <button class="pill-searchbtn" type="button" aria-label="Search"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.5" cy="6.5" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><line x1="10.5" y1="10.5" x2="15" y2="15" stroke="currentColor" stroke-width="1.5"/></svg></button>
+    <button class="pill-menu" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+  </div>
+</nav>
+<a class="pill pill--radar no-trail" href="#items" data-cursor="TRACK"><i aria-hidden="true"></i><span>[ <span class="radar-count">8</span> ] moving &middot; today</span></a>
+<div class="menu no-trail" id="menu" hidden>
+  <button class="menu-close" type="button">Close</button>
+  <ul class="menu-links"></ul>
+  <form class="pill-search" role="search" onsubmit="event.preventDefault()"><label class="sr" for="q-m">Search Visinage</label><input id="q-m" type="search" placeholder="Search" autocomplete="off"></form>
+  <div class="menu-foot"><a href="index.html#newsletter">Subscribe to the letter</a><a href="index.html">Back to the front</a></div>
+</div>
+
+<main>
+  <!-- 1. The board opener: the ring -->
+  <section class="sec board" data-theme="dark" id="board" aria-label="Radar board">
+    <div class="frame g12">
+      <div class="board-text">
+        <span class="label">Radar &middot; public</span>
+        <h1 class="h1">What is moving today</h1>
+        <p class="mono" id="board-date"></p>
+        <div class="board-readouts mono" id="board-readouts"></div>
+      </div>
+      <div class="board-ring no-trail" id="board-ring"></div>
+    </div>
+  </section>
+
+  <!-- 2. The eight items -->
+  <section class="sec" data-theme="dark" id="items" aria-label="Moving topics" style="padding-top:48px">
+    <div class="frame">
+      <header class="sec-head"><h2 class="h2"><span class="idx">[ 08 ]</span>Moving</h2><span class="mono">Movement is the change in a composite attention score over 24 hours &middot; demo data</span></header>
+      <ol class="ritems" id="ritems"></ol>
+    </div>
+  </section>
+
+  <!-- 3. How the radar works -->
+  <section class="sec how" data-theme="dark" id="how" aria-label="How the radar works">
+    <div class="frame g12">
+      <div class="how-strip rv">
+        <span class="label">How the radar works</span>
+        <h2 class="h2" style="margin-top:16px">Five collectors, one scorer</h2>
+        <ol class="collectors" id="collectors"></ol>
+      </div>
+      <div class="how-text rv" style="--i:1">
+        <p id="how-text"></p>
+        <p class="private">The desk is private. The radar shows what moved; it never shows what we decided to do about it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Started on the radar -->
+  <section class="sec started" data-theme="dark" id="started-sec" aria-label="Started on the radar">
+    <div class="frame">
+      <header class="sec-head rv"><h2 class="h2"><span class="idx">[ 02 ]</span>Started on the radar</h2><span class="mono">Published pieces that began as a moving topic</span></header>
+      <ol class="started-list rv" id="started"></ol>
+    </div>
+  </section>
+
+  <footer class="footer footer--compact" data-theme="dark" id="footer" aria-label="Footer"></footer>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="../../lib/content.js"></script>
+<script src="../../lib/content-phase-b.js"></script>
+<script src="../../lib/charts.js"></script>
+<script src="../../lib/motion.js"></script>
+<script src="../../lib/art.js"></script>
+<script src="instrument.js"></script>
+</body>
+</html>

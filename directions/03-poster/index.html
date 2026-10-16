@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Visinage, the poster</title>
+<meta name="description" content="Visinage homepage, direction three: the poster. Light-first with big colour blocks, Archivo capitals, duotone photography and a pixel-dissolve opener that turns the lead photograph into the lead chart. Design prototype with demo data.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<link rel="stylesheet" href="poster.css">
+</head>
+<body data-page="home" data-ground="navy">
+<header class="hdr" id="hdr"></header>
+<nav class="rail" id="rail" aria-label="Sections on this page"></nav>
+<main>
+  <!-- The opening moment: the lead photograph in navy and red duotone dissolves, pixel-block by pixel-block, into the halftone data cover;
+       the title docks into the header, the index into the rail, the chart draws, the three numerals count. -->
+  <section class="opener sec g-navy" id="opener" data-ground="navy" aria-label="Lead research">
+    <div class="stage" id="stage">
+      <div class="op-cover">
+        <div class="stage-fb" id="fb"><img class="duo duo--red" data-file="office-people.jpg" data-tone="red" src="../../assets/img/office-people.jpg" width="1400" height="875" alt="People at desks in an open office, silhouetted against the windows"><canvas class="fb-cover" aria-hidden="true"></canvas></div>
+        <canvas class="stage-gl" id="gl" aria-hidden="true" hidden></canvas>
+        <div class="op-progress" id="op-progress" aria-hidden="true"><i></i><i></i><i></i></div>
+        <h1 class="op-title disp disp--title h1" id="op-title"><span class="ln">Where the</span><span class="ln">middle-</span><span class="ln">wage jobs</span><span class="ln">went</span></h1>
+        <div class="op-kicker mono" id="op-kicker"></div>
+        <p class="op-deck serif s32" id="op-deck"></p>
+        <nav class="op-index" id="op-index" aria-label="Index of this page"></nav>
+      </div>
+      <div class="op-final" id="op-final">
+        <div class="nums" id="op-nums"></div>
+        <div class="chart-wrap"><div id="lead-chart"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec g-off pad" id="latest" data-ground="off" aria-label="Latest">
+    <div class="frame">
+      <div class="sec-head rv"><div><span class="label dim">I · Latest</span><h2 class="disp h2">Latest</h2></div><p class="side">Five research pieces and one visual essay, newest first. Hover a title to see its evidence.</p></div>
+      <div class="list" id="latest-list"></div>
+      <div class="list-foot" id="latest-foot"></div>
+    </div>
+  </section>
+
+  <section class="sec g-red pad" id="questions" data-ground="red" aria-label="Three questions">
+    <div class="frame">
+      <div class="sec-head rv"><div><span class="label">II · Three questions</span><h2 class="disp h2">Three questions</h2></div><p class="side">One question, one chart, one answer. Each links to the piece that does the work.</p></div>
+      <div id="questions-body"></div>
+    </div>
+  </section>
+
+  <section class="sec g-off pad" id="spotlight" data-ground="off" aria-label="Data spotlight">
+    <div class="frame">
+      <div class="sec-head rv"><div><span class="label dim">III · Data spotlight</span><h2 class="disp h2">Data spotlight</h2></div></div>
+      <div id="spotlight-body"></div>
+    </div>
+  </section>
+
+  <section class="sec g-cyan pad" id="radar" data-ground="cyan" aria-label="Radar">
+    <div class="frame">
+      <div class="sec-head rv"><div><span class="label">IV · Radar</span><h2 class="disp h2">Moving today</h2></div><p class="side">What the public radar is tracking right now. The desk behind it is private.</p></div>
+      <div id="radar-body"></div>
+    </div>
+  </section>
+
+  <section class="sec g-navy pad" id="video" data-ground="navy" aria-label="Video">
+    <div class="frame">
+      <div class="sec-head rv"><div><span class="label" style="color:var(--yellow)">V · Video</span><h2 class="disp h2">Watch it</h2></div><p class="side">The lead piece as a four-minute explainer, and three shorts.</p></div>
+      <div id="video-body"></div>
+    </div>
+  </section>
+
+  <section class="sec g-off pad" id="essay" data-ground="off" aria-label="Visual essay">
+    <div class="frame"><span class="label dim" style="display:block;margin-bottom:16px">VI · Visual essay</span><div id="essay-body"></div></div>
+  </section>
+
+  <section class="sec g-off pad-s" id="notes" data-ground="off" aria-label="Research notes">
+    <div class="frame">
+      <div class="sec-head rv"><div><span class="label dim">VII · Research notes</span><h2 class="disp h2">Notes</h2></div><p class="side">Short, dated, about method and data.</p></div>
+      <div id="notes-body"></div>
+    </div>
+  </section>
+
+  <section class="sec g-off pad" id="projects" data-ground="off" aria-label="Projects, tool and dataset">
+    <div class="frame">
+      <div class="sec-head rv"><div><span class="label dim">VIII · Projects</span><h2 class="disp h2">Projects</h2></div><p class="side">A multi-part project, a tool that updates, and the dataset behind the lead piece.</p></div>
+      <div id="projects-body"></div>
+    </div>
+  </section>
+
+  <section class="sec g-off pad-s" id="topics" data-ground="off" aria-label="Topics">
+    <div class="frame"><span class="label dim" style="display:block;margin-bottom:8px">Topics</span><div id="topics-body"></div></div>
+  </section>
+
+  <section class="sec g-navy pad" id="newsletter" data-ground="navy" aria-label="Newsletter">
+    <div class="frame" id="newsletter-body"></div>
+  </section>
+
+  <footer class="sec g-navy" data-ground="navy">
+    <div class="frame" id="footer-body"></div>
+  </footer>
+</main>
+<script src="../../lib/content.js"></script>
+<script src="../../lib/content-phase-b.js"></script>
+<script src="../../lib/charts.js"></script>
+<script src="../../lib/motion.js"></script>
+<script src="../../lib/art.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="poster.js"></script>
+</body>
+</html>

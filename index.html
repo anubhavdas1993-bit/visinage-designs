@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Visinage Directions</title>
+<meta name="description" content="Three design directions for Visinage, each with a homepage, radar and article opener. Prototypes with demo data.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+  /* Layout: one capped column; each direction is a row of text beside three phone-shaped previews, stacking on phones. */
+  :root {
+    --bg: #EEF0F2; --surface: #FFFFFF; --ink: #101318; --ink-2: #4A515B; --ink-3: #69707A; --rule: #D5DAE0;
+    --sans: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+    --mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+    --frame: 1180px;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0E1013; --surface: #171A1F; --ink: #E8EBEF; --ink-2: #A3AAB4; --ink-3: #868D97; --rule: #2A3038; color-scheme: dark; }
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.55 var(--sans); -webkit-font-smoothing: antialiased; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+  h1, h2, p, ul, ol { margin: 0; }
+  img { max-width: 100%; }
+  .wrap { max-width: var(--frame); margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 20px 56px; display: grid; gap: 40px; }
+  @media (min-width: 720px) { .wrap { padding-left: max(32px, env(safe-area-inset-left, 0px)); padding-right: max(32px, env(safe-area-inset-right, 0px)); padding-block: 28px 80px; gap: 56px; } }
+
+  .label { font: 500 11px/1.4 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); }
+
+  .masthead { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; padding-bottom: 14px; border-bottom: 1px solid var(--rule); }
+  .wordmark { font-weight: 800; font-size: 19px; letter-spacing: -.01em; }
+
+  .intro { display: grid; gap: 20px; }
+  @media (min-width: 900px) { .intro { grid-template-columns: 7fr 5fr; gap: 56px; align-items: end; } }
+  h1 { font-weight: 800; font-size: clamp(36px, 7vw, 64px); line-height: 1; letter-spacing: -.035em; margin: 0 0 16px; text-wrap: balance; }
+  .lede { font-size: 18px; color: var(--ink-2); max-width: 60ch; }
+  .howto { list-style: none; padding: 0; display: grid; gap: 10px; font-size: 15px; color: var(--ink-2); }
+  .howto li { padding-top: 10px; border-top: 1px solid var(--rule); }
+  .howto b { color: var(--ink); font-weight: 700; }
+
+  .dir { display: grid; gap: 20px; padding-top: 24px; border-top: 2px solid var(--ink); }
+  @media (min-width: 900px) { .dir { grid-template-columns: 5fr 7fr; gap: 48px; padding-top: 32px; } }
+  .dir-text { display: grid; gap: 12px; align-content: start; min-width: 0; }
+  .dir h2 { font-weight: 800; font-size: clamp(28px, 4.4vw, 40px); line-height: 1.02; letter-spacing: -.03em; text-wrap: balance; }
+  .dir-text p { max-width: 56ch; }
+  .dir-desc { color: var(--ink-2); }
+  .palette { display: flex; height: 12px; max-width: 260px; border: 1px solid var(--rule); }
+  .palette span { flex: 1; }
+  .specs { font: 400 12px/1.5 var(--mono); color: var(--ink-3); }
+
+  .pages { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  @media (min-width: 720px) { .pages { gap: 20px; } }
+  .pages a { display: grid; gap: 8px; color: inherit; text-decoration: none; border-radius: 12px; }
+  .shot { aspect-ratio: 1 / 2; max-width: 100%; overflow: hidden; border-radius: 12px; border: 1px solid var(--rule); background: var(--surface); transition: transform .25s cubic-bezier(.2,.7,.2,1), box-shadow .25s; }
+  .shot img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+  .pname { font-weight: 700; font-size: 15px; line-height: 1.25; display: flex; align-items: baseline; gap: 6px; }
+  .pname::after { content: "\2192"; font-weight: 500; transition: transform .25s; }
+  .pdesc { font-size: 13px; line-height: 1.4; color: var(--ink-2); }
+  .pages a:hover .shot { transform: translateY(-4px); box-shadow: 0 14px 30px -18px rgba(0,0,0,.45); }
+  .pages a:hover .pname::after { transform: translateX(3px); }
+  .pages a:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+  @media (max-width: 420px) { .pname { font-size: 14px; } .pdesc { font-size: 12px; } }
+
+  .closing { display: grid; gap: 24px; padding-top: 24px; border-top: 1px solid var(--rule); color: var(--ink-2); font-size: 15px; }
+  @media (min-width: 900px) { .closing { grid-template-columns: 7fr 5fr; gap: 56px; } }
+  .closing h2 { font-size: 20px; font-weight: 800; letter-spacing: -.01em; color: var(--ink); margin: 0 0 8px; }
+  .closing p { max-width: 60ch; }
+
+  @media (prefers-reduced-motion: reduce) { .shot, .pname::after { transition: none; } .pages a:hover .shot { transform: none; } }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header class="masthead">
+    <p class="wordmark">Visinage</p>
+    <p class="label">Design prototypes &middot; October 2026</p>
+  </header>
+
+  <section class="intro">
+    <div>
+      <h1>Three directions for the site</h1>
+      <p class="lede">Visinage is an independent research, data and visual publication. These are three ways it could look. Every direction has the same three pages with the same placeholder content, so the design is the only thing that changes.</p>
+    </div>
+    <ul class="howto">
+      <li><b>Tap a preview</b> to open that page. Its own menu links to the other pages in the same direction.</li>
+      <li><b>Use your browser's back button</b> to return here.</li>
+      <li><b>Scroll slowly.</b> Most of the motion is tied to scrolling.</li>
+      <li><b>Every figure is demo data</b> and the photographs are stand-ins.</li>
+    </ul>
+  </section>
+
+  <section class="dir" id="instrument" aria-labelledby="d1">
+    <div class="dir-text">
+      <p class="label">Direction 1 &middot; Dark-first</p>
+      <h2 id="d1">The instrument</h2>
+      <div class="palette" aria-hidden="true"><span style="background:#0B0C0E"></span><span style="background:#ECE9E2"></span><span style="background:#FF4D3D"></span><span style="background:#C8FF4D"></span></div>
+      <p class="dir-desc">Built around one object: a ring of ticks that is the hero, the radar and the logo. Monospaced readouts, rows that open to show the evidence, and on desktop a cursor that carries labels.</p>
+      <p class="specs">About 180&nbsp;KB per page, plus GSAP for scroll motion</p>
+    </div>
+    <ol class="pages">
+      <li><a href="directions/01-instrument/index.html"><span class="shot"><img src="thumbs/01-index.jpg" width="390" height="780" alt="Preview of the instrument homepage" loading="lazy"></span><span class="pname">Homepage</span><span class="pdesc">The particle ring becomes the lead chart</span></a></li>
+      <li><a href="directions/01-instrument/radar.html"><span class="shot"><img src="thumbs/01-radar.jpg" width="390" height="780" alt="Preview of the instrument radar" loading="lazy"></span><span class="pname">Radar</span><span class="pdesc">Eight moving topics on one ring</span></a></li>
+      <li><a href="directions/01-instrument/article.html"><span class="shot"><img src="thumbs/01-article.jpg" width="390" height="780" alt="Preview of the instrument article opener" loading="lazy"></span><span class="pname">Article</span><span class="pdesc">A pinned chart narrates four claims</span></a></li>
+    </ol>
+  </section>
+
+  <section class="dir" id="objects" aria-labelledby="d2">
+    <div class="dir-text">
+      <p class="label">Direction 2 &middot; Light, 3D objects</p>
+      <h2 id="d2">The world of objects</h2>
+      <div class="palette" aria-hidden="true"><span style="background:#F3EFE6"></span><span style="background:#1A1A1F"></span><span style="background:#2742D6"></span><span style="background:#B8B2A6"></span></div>
+      <p class="dir-desc">Toon-shaded 3D objects where the object is the chart. Colour bands between sections, figures set as numbered plates, and an article that opens on a chapter object.</p>
+      <p class="specs">About 180&nbsp;KB per page, plus Three.js for the objects</p>
+    </div>
+    <ol class="pages">
+      <li><a href="directions/02-objects/index.html"><span class="shot"><img src="thumbs/02-index.jpg" width="390" height="780" alt="Preview of the world of objects homepage" loading="lazy"></span><span class="pname">Homepage</span><span class="pdesc">3D objects that are the charts</span></a></li>
+      <li><a href="directions/02-objects/radar.html"><span class="shot"><img src="thumbs/02-radar.jpg" width="390" height="780" alt="Preview of the world of objects radar" loading="lazy"></span><span class="pname">Radar</span><span class="pdesc">Today's topics and where they surfaced</span></a></li>
+      <li><a href="directions/02-objects/article.html"><span class="shot"><img src="thumbs/02-article.jpg" width="390" height="780" alt="Preview of the world of objects article opener" loading="lazy"></span><span class="pname">Article</span><span class="pdesc">A chapter object opens the piece</span></a></li>
+    </ol>
+  </section>
+
+  <section class="dir" id="poster" aria-labelledby="d3">
+    <div class="dir-text">
+      <p class="label">Direction 3 &middot; Light, colour blocks</p>
+      <h2 id="d3">The poster</h2>
+      <div class="palette" aria-hidden="true"><span style="background:#082C4C"></span><span style="background:#E8324F"></span><span style="background:#1FA3D6"></span><span style="background:#F4C518"></span><span style="background:#F1F5F7"></span></div>
+      <p class="dir-desc">Huge capitals and big blocks of colour. The whole page changes colour as you scroll, photographs are duotone, and the lead photograph dissolves pixel by pixel into the lead chart.</p>
+      <p class="specs">About 120&nbsp;KB of code per page plus the photographs, plus GSAP for scroll motion</p>
+    </div>
+    <ol class="pages">
+      <li><a href="directions/03-poster/index.html"><span class="shot"><img src="thumbs/03-index.jpg" width="390" height="780" alt="Preview of the poster homepage" loading="lazy"></span><span class="pname">Homepage</span><span class="pdesc">The photo dissolves into the chart</span></a></li>
+      <li><a href="directions/03-poster/radar.html"><span class="shot"><img src="thumbs/03-radar.jpg" width="390" height="780" alt="Preview of the poster radar" loading="lazy"></span><span class="pname">Radar</span><span class="pdesc">Each topic a full-screen poster</span></a></li>
+      <li><a href="directions/03-poster/article.html"><span class="shot"><img src="thumbs/03-article.jpg" width="390" height="780" alt="Preview of the poster article opener" loading="lazy"></span><span class="pname">Article</span><span class="pdesc">The dissolve opener and a year ruler</span></a></li>
+    </ol>
+  </section>
+
+  <section class="closing">
+    <div>
+      <h2>When you reply</h2>
+      <p>Say which direction you would come back to and why. Mention anything that broke, stuttered or got hard to read, and which phone and browser you used.</p>
+    </div>
+    <p class="label">Prototypes only. Content, figures and photographs are placeholders, not published research.</p>
+  </section>
+</main>
+</body>
+</html>
